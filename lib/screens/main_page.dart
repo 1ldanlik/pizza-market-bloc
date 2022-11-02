@@ -17,6 +17,11 @@ class MainPage extends StatelessWidget {
           }, icon: const ImageIcon(AssetImage('assets/person_icon.png')))
         ],
       ),
+      // body: ListView.builder(
+      //     itemBuilder: (context, index) {
+      //       return
+      //     }
+      // ),
     );
   }
 }
