@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/pizza_bloc.dart';
+import '../config.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,11 +21,32 @@ class MainPage extends StatelessWidget {
           }, icon: const ImageIcon(AssetImage('assets/person_icon.png')))
         ],
       ),
-      // body: ListView.builder(
-      //     itemBuilder: (context, index) {
-      //       return
-      //     }
-      // ),
+      body: BlocBuilder<PizzaBloc, PizzaState>(
+        builder: (context, state) {
+          if(state.pizzaList.isEmpty) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return ListView(
+            children: [
+              for(final pizza in state.pizzaList)
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Config.whiteCardColor)
+                  ),
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Image.asset(pizza.image)
+                      ],
+                    )
+                )
+            ],
+          );
+        },
+      ),
     );
   }
 }
