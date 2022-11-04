@@ -13,36 +13,59 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Pizza Market'),
         actions: [
-          IconButton(onPressed: () {
-
-          }, icon: const ImageIcon(AssetImage('assets/basket_icon.png'))),
-          IconButton(onPressed: () {
-
-          }, icon: const ImageIcon(AssetImage('assets/person_icon.png')))
+          IconButton(
+              onPressed: () {},
+              icon: ShaderMask(
+                blendMode: BlendMode.srcATop,
+                shaderCallback: (bounds) => LinearGradient(
+                  begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Config.topIconColor, Config.topIconColor]
+                ).createShader(bounds),
+                child: const ImageIcon(AssetImage('assets/basket_icon.png')),
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: ShaderMask(
+                blendMode: BlendMode.srcATop,
+                shaderCallback: (bounds) => LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Config.topIconColor, Config.topIconColor]
+                ).createShader(bounds),
+                child: const ImageIcon(AssetImage('assets/person_icon.png')),
+              )),
         ],
       ),
       body: BlocBuilder<PizzaBloc, PizzaState>(
         builder: (context, state) {
-          if(state.pizzaList.isEmpty) {
+          if (state.pizzaList.isEmpty) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: Text('No pizza there'),
             );
           }
 
           return ListView(
             children: [
-              for(final pizza in state.pizzaList)
+              for (final pizza in state.pizzaList)
                 ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Config.whiteCardColor)
-                  ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Config.whiteCardColor)),
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Image.asset(pizza.image)
+                        Image.asset(
+                          pizza.image,
+                          width: 64,
+                        ),
+                        Text(pizza.title),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(pizza.price.toString())
+                        )
                       ],
-                    )
-                )
+                    ))
             ],
           );
         },
