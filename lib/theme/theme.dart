@@ -16,7 +16,8 @@ class PizzaMarketBlocTheme {
           800:Config.primaryWhiteColor.withOpacity(.9),
           900:Config.primaryWhiteColor.withOpacity(1),
         }),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
+        elevation: .0,
         color: Config.primaryWhiteColor
       )
     );
