@@ -31,7 +31,7 @@ class MainPage extends StatelessWidget {
               onPressed: () {},
               icon: ShaderMask(
                 blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) => LinearGradient(
+                shaderCallback: (bounds) => const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [Config.topIconColor, Config.topIconColor]
@@ -40,16 +40,19 @@ class MainPage extends StatelessWidget {
               )),
         ],
       ),
-      body: ListView(
-            children: [
-              for (var pizza in listOfDifferPizza)
-                PizzaSelectCard(
-                    image: pizza.image,
-                    title: pizza.title,
-                    price: pizza.price
-                ),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: Config.padding * 1.5),
+        child: ListView(
+              children: [
+                for (var pizza in listOfDifferPizza)
+                  PizzaSelectCard(
+                      image: pizza.image,
+                      title: pizza.title,
+                      price: pizza.price
+                  ),
+              ],
+            ),
+      ),
     );
   }
 }
