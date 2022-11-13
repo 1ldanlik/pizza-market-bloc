@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pizza_market_bloc/components/pizza_select_card.dart';
 
-import '../bloc/pizza_bloc.dart';
+import '../api.dart';
 import '../config.dart';
 
 class MainPage extends StatelessWidget {
@@ -9,6 +9,9 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final listOfDifferPizza = Api.getDifferentKindOfPizza();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pizza Market'),
@@ -22,7 +25,7 @@ class MainPage extends StatelessWidget {
                     end: Alignment.bottomRight,
                     colors: [Config.topIconColor, Config.topIconColor]
                 ).createShader(bounds),
-                child: const ImageIcon(AssetImage('assets/basket_icon.png')),
+                child: const ImageIcon(AssetImage('assets/icons/basket_icon.png')),
               )),
           IconButton(
               onPressed: () {},
@@ -33,43 +36,20 @@ class MainPage extends StatelessWidget {
                     end: Alignment.bottomRight,
                     colors: [Config.topIconColor, Config.topIconColor]
                 ).createShader(bounds),
-                child: const ImageIcon(AssetImage('assets/person_icon.png')),
+                child: const ImageIcon(AssetImage('assets/icons/person_icon.png')),
               )),
         ],
       ),
-      body: BlocBuilder<PizzaBloc, PizzaState>(
-        builder: (context, state) {
-          if (state.pizzaList.isEmpty) {
-            return const Center(
-              child: Text('No pizza there'),
-            );
-          }
-
-          return ListView(
+      body: ListView(
             children: [
-              for (final pizza in state.pizzaList)
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Config.whiteCardColor)),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          pizza.image,
-                          width: 64,
-                        ),
-                        Text(pizza.title),
-                        Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(pizza.price.toString())
-                        )
-                      ],
-                    ))
+              for (var pizza in listOfDifferPizza)
+                PizzaSelectCard(
+                    image: pizza.image,
+                    title: pizza.title,
+                    price: pizza.price
+                ),
             ],
-          );
-        },
-      ),
+          ),
     );
   }
 }

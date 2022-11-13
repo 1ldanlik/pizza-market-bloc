@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,14 +16,14 @@ class PizzaBloc extends Bloc<PizzaEvent, PizzaState> {
 
   void _onIncrement(Increment event, Emitter<PizzaState> emit) {
     final List<Pizza> pizzaList = state.pizzaList;
-    pizzaList.removeWhere((item) => item == event.pizza);
+    pizzaList.add(event.pizza);
     emit(state.copyWith(
         pizzaList: () => pizzaList, status: () => PizzaStatus.success));
   }
 
   void _onDecrement(Decrement event, Emitter<PizzaState> emit) {
     final List<Pizza> pizzaList = state.pizzaList;
-    pizzaList.removeWhere((item) => item == event.pizza);
+    pizzaList.remove(event.pizza);
     emit(
         state.copyWith(
         pizzaList: () => pizzaList,
