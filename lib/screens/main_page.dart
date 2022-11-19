@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_market_bloc/components/pizza_select_card.dart';
 
 import '../api.dart';
+import '../components/add_pizza_card.dart';
 import '../config.dart';
 
 class MainPage extends StatelessWidget {
@@ -45,7 +46,7 @@ class MainPage extends StatelessWidget {
         child: ListView(
               children: [
                 for (var pizza in listOfDifferPizza)
-                  PizzaSelectCard(
+                  AddPizzaCard(
                       image: pizza.image,
                       title: pizza.title,
                       price: pizza.price
