@@ -20,10 +20,10 @@ class MainPage extends StatelessWidget {
               onPressed: () {},
               icon: ShaderMask(
                 blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) => LinearGradient(
+                shaderCallback: (bounds) => const LinearGradient(
                   begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [Config.topIconColor, Config.topIconColor]
+                    colors: [Config.mainIconColor, Config.bottomGradientIconColor]
                 ).createShader(bounds),
                 child: const ImageIcon(AssetImage('assets/icons/basket_icon.png')),
               )),
@@ -34,7 +34,7 @@ class MainPage extends StatelessWidget {
                 shaderCallback: (bounds) => const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [Config.topIconColor, Config.topIconColor]
+                    colors: [Config.mainIconColor, Config.bottomGradientIconColor]
                 ).createShader(bounds),
                 child: const ImageIcon(AssetImage('assets/icons/person_icon.png')),
               )),
