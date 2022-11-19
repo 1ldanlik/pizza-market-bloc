@@ -6,8 +6,9 @@ class Config {
   static const Color primaryWhiteColor = Color(0xFFFFFFFF);
 
   // ICON COLORS
-  static const Color topIconColor = Color(0xFFFF1843),
-      bottomIconColor = Color(0xFFFF7E95);
+  static const Color mainIconColor = Color(0xFFFF1843),
+      bottomGradientIconColor = Color(0xFFFF7E95),
+  lightIconColor = Color.fromRGBO(244, 63, 94, 0.1);
 
   // ACTIVITY
   static const double mediumBorderRadius = 16, smallBorderRadius = 12, padding = 16;

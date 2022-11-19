@@ -16,13 +16,17 @@ class PizzaSelectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(Config.padding),
+      padding: const EdgeInsets.symmetric(
+          horizontal: Config.padding / 2,
+          vertical: Config.padding
+      ),
       child: ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: const MaterialStatePropertyAll(Config.primaryWhiteColor),
+          padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+          backgroundColor: const MaterialStatePropertyAll(Config.primaryWhiteColor),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(Config.mediumBorderRadius)
+                borderRadius: BorderRadius.circular(Config.mediumBorderRadius)
             ),
           ),
           elevation: const MaterialStatePropertyAll(.0),
@@ -41,20 +45,21 @@ class PizzaSelectCard extends StatelessWidget {
             ),
 
             Expanded(
-                child: Text(
-                    title,
-                  style: const TextStyle(
+              child: Text(
+                title,
+                style: const TextStyle(
                     fontSize: Config.textMediumSize
-                  ),
                 ),
+              ),
             ),
 
             Text(
               '\$$price',
               style: const TextStyle(
-              color: Config.textPriceColor,
-              fontSize: Config.textLargeSize,
-            ),),
+                color: Config.textPriceColor,
+                fontSize: Config.textLargeSize,
+                fontWeight: FontWeight.w600,
+              ),),
 
             const SizedBox(width: Config.padding * 2,),
           ],
