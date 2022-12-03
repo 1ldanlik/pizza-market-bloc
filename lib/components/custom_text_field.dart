@@ -17,16 +17,13 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Config.padding * 1.25),
-      child: SizedBox(
-        height: 32,
-        child: TextField(
-          controller: widget.controller,
-          decoration: const InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: Config.padding / 2),
-            border: OutlineInputBorder(),
-          ),
+    return SizedBox(
+      height: 32,
+      child: TextField(
+        controller: widget.controller,
+        decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: Config.padding / 2),
+          border: OutlineInputBorder(),
         ),
       ),
     );

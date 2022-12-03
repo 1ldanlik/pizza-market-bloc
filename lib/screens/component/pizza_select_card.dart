@@ -48,7 +48,7 @@ class PizzaSelectCard extends StatelessWidget {
               child: Text(
                 title,
                 style: const TextStyle(
-                    fontSize: Config.textMediumSize
+                    fontSize: Config.textLargeSize
                 ),
               ),
             ),
@@ -57,7 +57,7 @@ class PizzaSelectCard extends StatelessWidget {
               '\$$price',
               style: const TextStyle(
                 color: Config.textPriceColor,
-                fontSize: Config.textLargeSize,
+                fontSize: Config.textTitleSize,
                 fontWeight: FontWeight.w600,
               ),),
 

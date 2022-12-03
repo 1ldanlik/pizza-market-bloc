@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../config.dart';
+import '../styles.dart';
 import 'custom_text_field.dart';
 
 class AddPizzaCard extends StatefulWidget {
@@ -59,14 +60,27 @@ class _AddPizzaCardState extends State<AddPizzaCard> {
 
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: Config.padding * 2,),
+
+                  Text('Name', style: Styles.textLargeSemiBoldStyle,),
+
                   CustomTextField(controller: _nameController,),
+
+                  const SizedBox(height: Config.padding * 1.5,),
+
+                  Text('Price', style: Styles.textLargeSemiBoldStyle,),
+
                   CustomTextField(controller: _priceController,),
+
+                  const SizedBox(height: Config.padding * 2,),
                 ],
               ),
             ),
+
+            const SizedBox(width: Config.padding,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +110,7 @@ class _AddPizzaCardState extends State<AddPizzaCard> {
                 Text(
                   "$pizzaCount",
                   style: const TextStyle(
-                    fontSize: Config.textSmallSize,
+                    fontSize: Config.textMediumSize,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

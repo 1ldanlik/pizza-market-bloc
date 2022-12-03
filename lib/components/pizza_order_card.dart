@@ -56,14 +56,14 @@ class _PizzaOrderCardState extends State<PizzaOrderCard> {
                   Text(
                     widget.title,
                     style: const TextStyle(
-                        fontSize: Config.textMediumSize
+                        fontSize: Config.textLargeSize
                     ),
                     textAlign: TextAlign.start,
                   ),
                   Text(
                     '\$${widget.price}',
                     style: const TextStyle(
-                      fontSize: Config.textMediumSize,
+                      fontSize: Config.textLargeSize,
                       color: Config.textPriceColor,
                       fontWeight: FontWeight.w600,
                     ),
@@ -101,7 +101,7 @@ class _PizzaOrderCardState extends State<PizzaOrderCard> {
                 Text(
                   "$pizzaCount",
                   style: const TextStyle(
-                    fontSize: Config.textSmallSize,
+                    fontSize: Config.textMediumSize,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

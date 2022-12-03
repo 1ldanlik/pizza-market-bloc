@@ -16,5 +16,5 @@ class Config {
   // TEXT
   static const Color textPriceColor = Color(0xFFF43F5E);
 
-  static const double textLargeSize = 29, textMediumSize = 18, textSmallSize = 16;
+  static const double textTitleSize = 29, textLargeSize = 18, textMediumSize = 16;
 }
