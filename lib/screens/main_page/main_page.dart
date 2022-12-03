@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../api.dart';
-import '../components/add_pizza_card.dart';
-import '../config.dart';
+import '../../api.dart';
+import '../../components/add_pizza_card.dart';
+import '../../config.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);

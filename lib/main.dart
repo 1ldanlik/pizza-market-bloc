@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_market_bloc/theme/theme.dart';
 import 'bloc/pizza_bloc.dart';
-import 'screens/main_page.dart';
+import 'screens/main_page/main_page.dart';
 
 void main() {
   runApp(const MyApp());
