@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_market_bloc/components/pizza_select_card.dart';
 
 import '../api.dart';
 import '../components/add_pizza_card.dart';
@@ -41,19 +40,19 @@ class MainPage extends StatelessWidget {
               )),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Config.padding * 1.5),
-        child: ListView(
-              children: [
-                for (var pizza in listOfDifferPizza)
-                  AddPizzaCard(
+      body: ListView(
+            children: [
+              for (var pizza in listOfDifferPizza)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: Config.padding),
+                  child: AddPizzaCard(
                       image: pizza.image,
                       title: pizza.title,
                       price: pizza.price
                   ),
-              ],
-            ),
-      ),
+                ),
+            ],
+          ),
     );
   }
 }

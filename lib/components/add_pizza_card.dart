@@ -38,6 +38,14 @@ class _AddPizzaCardState extends State<AddPizzaCard> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Config.mediumBorderRadius),
           color: Config.primaryWhiteColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.08),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: const Offset(10, 15),
+            ),
+          ],
         ),
         child: Row(
           children: [
@@ -54,14 +62,8 @@ class _AddPizzaCardState extends State<AddPizzaCard> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomTextField(),
-                  CustomTextField(),
-                  // TextFormField(
-                  //   controller: _priceController,
-                  // ),
-                  // TextFormField(
-                  //   controller: _priceController,
-                  // ),
+                  CustomTextField(controller: _nameController,),
+                  CustomTextField(controller: _priceController,),
                 ],
               ),
             ),
