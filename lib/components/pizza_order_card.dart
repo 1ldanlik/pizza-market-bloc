@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_market_bloc/components/image_component.dart';
 
 import '../config.dart';
 
@@ -40,13 +41,7 @@ class _PizzaOrderCardState extends State<PizzaOrderCard> {
         ),
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(Config.padding - 4,),
-              child: Image.asset(
-                widget.image,
-                width: 64,
-              ),
-            ),
+            ImageComponent(image: widget.image),
 
             Expanded(
               child: Column(

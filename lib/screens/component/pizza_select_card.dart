@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_market_bloc/components/image_component.dart';
 import 'package:pizza_market_bloc/config.dart';
 
 class PizzaSelectCard extends StatelessWidget {
@@ -36,13 +37,7 @@ class PizzaSelectCard extends StatelessWidget {
         },
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(Config.padding - 4,),
-              child: Image.asset(
-                image,
-                width: 64,
-              ),
-            ),
+            ImageComponent(image: image),
 
             Expanded(
               child: Text(
